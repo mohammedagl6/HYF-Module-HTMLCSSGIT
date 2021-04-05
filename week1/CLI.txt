@@ -1,0 +1,18 @@
+1. How do I create a hidden file or folder? How do I display it in the CLI?
+To create hidden folder test:
+mkdir .test
+and to hide it in windows system we add:
+attrib +h .test
+To create hidden file test.txt:
+touch .test.txt
+and to hide it in windows system we add:
+attrib +h .test.txt
+and to display hidden folders and files:
+ls -a
+
+2. How do I create multiple nested directories, like /c/Users/myusername/these/folders/are/just/for/fun?
+mkdir -p /c/Users/myusername/these/folders/are/just/for/fun
+
+3. How do I append a message to a file, without a newline character, so the output would be:
+To append "second message" to a file.txt that already has the content "first message":
+echo "second message" >> file.txt
