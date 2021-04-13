@@ -1,0 +1,3 @@
+pwd : shows the current folder(where am I)
+ls: shows the content of the folder
+cd: changes the current location to a specified one
