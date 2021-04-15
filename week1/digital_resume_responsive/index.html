@@ -8,37 +8,37 @@
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
-    <div class="outer">
+    <main class="outer">
         <div class="container">
-            <div class="front">
+            <section class="front">
                 <div class="content">
                     <h1>Digital Resume</h1>
 
-                    <img src="prf_img.jpeg" alt="Profile Image" class="prf-img">
-                    <h3>Full Stack Developer</h3>
+                    <img src="prf_img.jpeg" alt="Profile Image" class="front-content-profile_img">
+                    <h2>Full Stack Developer</h2>
                     <p>Education: <strong>Tishreen University</strong></p>
                     <p>Work: <b>the Netherlands</b></p>
-                    <ul class="skills">
+                    <ul class="front-content-skills">
                         <li>html</li>
                         <li class="css">css</li>
                         <li class="java">javascript</li>
                     </ul>
                 </div>
-            </div>
-            <div class="back">
+            </section>
+            <section class="back">
                 <div class="content">
                     <h1>Contact Me</h1>
-                    <form>
-                        <label>Name :</label>
-                        <input type="text" placeholder="Full Name" autocomplete="disabled">
-                        <label>E-mail :</label>
-                        <input type="text" placeholder="Example@mail.com" autocomplete="disabled">
-                        <label>Details :</label>
-                        <textarea placeholder="The message here." autocomplete="disabled"></textarea>
+                    <form class="back-content-form">
+                        <label for="full-name">Name :</label>
+                        <input id="full-name" type="text" placeholder="Full Name" autocomplete="disabled">
+                        <label for="email">E-mail :</label>
+                        <input id="email" type="text" placeholder="Example@mail.com" autocomplete="disabled">
+                        <label for="details">Details :</label>
+                        <textarea id="details" placeholder="The message here." autocomplete="disabled"></textarea>
                         <input type="submit" value="Submit">
                     </form>
                 </div>
-            </div>
+            </section>
         
         </div>
     </div>

@@ -21,6 +21,9 @@ h1{
   	color:#fca311;
 	letter-spacing: 3px;
 }
+h2{
+	font-size: 1.3rem;
+}
 .outer{
 	position: relative;
 	padding:20px 5px 5px 20px;
@@ -93,7 +96,7 @@ h1{
 	transform: rotateY(180deg);
 }
 
-.skills li{
+.front-content-skills li{
 	display: inline-block;
 	background: #698f3f;
 	text-decoration: none;
@@ -116,7 +119,7 @@ li.java{
 	background: #e5e5e5;
 	outline: 0.2rem solid #e5e5e5;
 }
-.prf-img{
+.front-content-profile_img{
 	width: 100px;
 	height: 100px;
 	border-radius: 50%;
@@ -124,16 +127,16 @@ li.java{
 }
 
 
-form {
+.back-content-form {
 	text-align: left;
 }
 
-form label,
-form input {
+.back-content-form label,
+.back-content-form input {
 	display: block;
 }
-form input,
-form textarea {
+.back-content-form input,
+.back-content-form textarea {
 	background: transparent;
 	border: 0;
 	outline: 0;
@@ -142,11 +145,10 @@ form textarea {
 	width: 100%;
 	color: #e5e5e5;
 }
-form label {
+.back-content-form label {
 	margin: 15px 0;
 }
-form input[type="submit"] {
-	display: block;
+.back-content-form input[type="submit"] {	
 	width: auto;
 	margin: 10px auto;
 	padding: 5px 10px;
