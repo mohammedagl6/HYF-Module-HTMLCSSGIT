@@ -147,6 +147,7 @@ $(document).ready(function(){
 				
 				// close the last menu and open the other menu automaticaly
 				if(!the_same){
+					if($('.nav_sticky').length){$('.nav_sticky').css('background-color', 'transparent');}
 					$(document.body).addClass('hide_scroll');
 					coverBackground.addClass('main_background');
 					//coverBackground.addClass('subMenuBigTag');
