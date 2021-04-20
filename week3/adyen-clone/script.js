@@ -64,6 +64,8 @@ $(document).ready(function(){
 		if($('.border_top').length){ $('.border_top').removeClass('border_top'); }
 		if($('.show_sub_sm').length){ $('.show_sub_sm').removeClass('show_sub_sm'); }
 		if($('.show_back_main_btn').length){ $('.show_back_main_btn').removeClass('show_back_main_btn'); }
+		if($('.hide_scroll').length){$('.hide_scroll').removeClass('hide_scroll'); }
+		if($('.nav_sticky').length){$('.nav_sticky').css('background-color', '#fff');}
 	}
 	
 	const navMenu = $('.main_menu');
@@ -117,6 +119,7 @@ $(document).ready(function(){
 	let lastBtn, the_same=false;
 	$('.sub_menu-btn').click(function(e){
 		e.preventDefault();
+		if($('.nav_sticky').length){$('.nav_sticky').css('background-color', 'transparent');}
 		if($('.main_menu_fixed').length){
 			let subMenu = $(this).find('.sub_menu');
 			let backMainBtn = $(this).find('.back_main_btn');			
@@ -140,6 +143,7 @@ $(document).ready(function(){
 				$('.border_top').removeClass('border_top');
 				$(document.body).removeClass('hide_scroll');
 				coverBackground.removeClass('main_background');
+				if($('.nav_sticky').length){$('.nav_sticky').css('background-color', '#fff');}
 				
 				// close the last menu and open the other menu automaticaly
 				if(!the_same){
