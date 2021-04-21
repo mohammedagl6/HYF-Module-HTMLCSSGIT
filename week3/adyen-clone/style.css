@@ -556,7 +556,7 @@ a.btn-language:hover{
 }
 .main_menu_fixed .container .main_menu .links .sub_menu{
     left: unset;
-    max-height: 90vw;    
+    max-height: 90vh;    
     top: 72px;
     z-index: -1;    
     align-items: stretch;
@@ -829,6 +829,11 @@ div.links_white{
     }
     .contact{
         flex: 100%;
+    }
+
+    .main_menu_fixed .container .main_menu .links,
+    .main_menu_fixed .container .main_menu .links .sub_menu{
+        width: 75vw;
     }
 }
 
