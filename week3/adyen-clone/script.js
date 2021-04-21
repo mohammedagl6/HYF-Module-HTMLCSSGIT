@@ -14,8 +14,11 @@ $(document).ready(function(){
 		coverBackground.toggleClass('main_background');
 		if($('.show_sub_sm').length){ $('.show_sub_sm').removeClass('show_sub_sm'); }
 		if($('.show_back_main_btn').length){ $('.show_back_main_btn').removeClass('show_back_main_btn'); }
-
-		
+		if($('.main_menu_fixed').length){
+			$('.nav_sticky').css('background-color', 'transparent');
+		}else{
+			$('.nav_sticky').css('background-color', '#fff');
+		}		
 	});
 
 	coverBackground.click(function(){
