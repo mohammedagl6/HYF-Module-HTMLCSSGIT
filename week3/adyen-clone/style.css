@@ -692,7 +692,7 @@ div.links_white{
     bottom: 0;
     width: 100vw;
     height: 100vh;
-    padding-top: 24px;
+    padding-top: 75px;
 }
 .search-form{
     width: 80%;
@@ -704,8 +704,7 @@ div.links_white{
 }
 .form-group{
     position: relative;
-    width: 100%;
-    margin-bottom: 24px;
+    width: 100%;    
 }
 .search-input{
     height: 39px;
@@ -726,13 +725,13 @@ div.links_white{
 .search-options{
     width: 100%;
     display: inline-flex;
+    flex-wrap: wrap;
     box-shadow: 0 -1px 0 0 #dce0e5 inset;        
 }
 .search-options-btn{
     color:#00112c;
     font-weight: bold;    
-    padding-bottom: 24px; 
-    margin-right: 24px;
+    padding: 24px 24px 24px 0;
     text-align: right; 
     transition: all .3s ease-in-out;  
 }
