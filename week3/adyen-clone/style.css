@@ -732,7 +732,8 @@ div.links_white{
 .search-options-btn{
     color:#00112c;
     font-weight: bold;    
-    padding: 24px 24px 24px 0;
+    padding: 24px 0;
+    margin-right: 24px;
     text-align: right; 
     transition: all .3s ease-in-out;  
 }
