@@ -56,7 +56,7 @@ $(document).ready(function(){
 		if(coverBackground.hasClass('main_background')){
 			coverBackground.removeClass('main_background');	
 		}
-		
+		console.log(window.innerWidth);
 		resetClasses();
 	});
 
@@ -193,4 +193,34 @@ $(document).ready(function(){
 		$('#search').css('display', 'block');
 	});
 
+
+	//companies slider
+	const companiesFeaturesItems = document.querySelectorAll('.companies-features-item');
+	const smSliderBtns = document.querySelectorAll('.sm-slider-btn');
+	
+	// if(window.innerWidth < 769){
+	// 	slide(1);	
+	// }
+
+
+	
+	smSliderBtns[1].classList.add('sm-slider-btn-active');
+	let lastSliderBtn = 1;
+	smSliderBtns.forEach(function(btn, index){
+		btn.addEventListener('click', function(){
+			if(index != lastSliderBtn){
+				smSliderBtns[lastSliderBtn].classList.remove('sm-slider-btn-active');
+				btn.classList.add('sm-slider-btn-active');
+				lastSliderBtn = index;
+				slide(index);
+			}
+			
+		});
+	})
+
+	function slide(index){		
+		companiesFeaturesItems.forEach(function(item, item_index){
+			item.style.transform = `translate(${(item_index - index)*100}%)`;			
+		});
+	}
 });

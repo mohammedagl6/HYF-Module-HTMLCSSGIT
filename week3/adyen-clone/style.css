@@ -812,10 +812,56 @@ div.links_white{
     .companies{
         padding: 25px 0;
     }   
-    .companies-main-item-1, .companies-main-item-2, .companies-features-item{
+    .companies-main-item-1, .companies-main-item-2{
         width: 100%;
         margin-bottom: 25px;
+    }
+    .sm-slider{
+        margin-top:50px;
     }    
+    .sm-slider-btn{
+        display: inline-block;         
+        width: 10px;
+        height: 10px;
+        margin-right: 10px;
+        background: #d2dae1;      
+        border-radius: 50%;
+        cursor: pointer;
+        transition: background-color .3s ease-in-out;
+    }
+    .sm-slider-btn:hover{
+        background: var(--green);
+    }
+    .sm-slider-btn-active{
+        background: var(--blue-darker) !important;
+    }
+    .companies-features{
+        position: relative;
+        left:-7.5%;
+        right: 92.5%;
+        width: 115%;
+        overflow: hidden;
+        height: 470px;
+        margin-top: 15px;
+    }
+    .companies-features-item{
+        left: 7.5%;
+        top: 0;
+        position: absolute;
+        width: 85%;   
+        padding-right: 2.5%; 
+        padding-left: 2.5%;
+        transition: all .5s ease-in-out;      
+    }    
+    .companies-features-item-left{
+        transform: translateX(-100%);
+    }
+    .companies-features-item-right{
+        transform: translateX(100%);
+    }
+    .slide-left{
+        transform: translateX(-100%);
+    }
     .account{
         padding-top: 50px;
         padding-bottom: 50px;
@@ -836,5 +882,9 @@ div.links_white{
         width: 75vw;
     }
 }
-
+@media (max-width:550px) {
+    .companies-features{
+        height: 382px;;
+    }
+}
 
