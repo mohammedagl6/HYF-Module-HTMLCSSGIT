@@ -227,3 +227,34 @@ function slide(index){
 		item.style.transform = `translate(${(item_index - index)*100}%)`;			
 	});
 }
+let firstX = 0;
+let timerSetTouch = 0;
+let counter = 0;
+companiesFeaturesItems.forEach(function(item, item_index){		
+	item.addEventListener('touchmove', function(e){
+		if(counter == 0){
+			//first move
+			firstX = e.touches[0].clientX;
+		}
+		counter = 1;
+		clearTimeout(timerSetTouch);
+		timerSetTouch = setTimeout(function(){
+			lastX = e.touches[0].clientX;
+			if(lastX > firstX){
+				//moved left
+				if(item_index != 0){
+					smSliderBtns[item_index -1].click();
+				}				
+			}else{
+				//moved right
+				if(item_index != companiesFeaturesItems.length -1){
+					smSliderBtns[item_index +1].click();
+				}				
+			}
+			
+			//reset the counter
+			counter = 0;
+		}, 100);
+		
+	});
+});
