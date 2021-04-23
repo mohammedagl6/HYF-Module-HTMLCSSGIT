@@ -1,5 +1,4 @@
 
-
 $(document).ready(function(){
 	
 	const navBtn = $('#nav-btn');
@@ -129,8 +128,7 @@ $(document).ready(function(){
 			subMenu.addClass('show_sub_sm');
 			backMainBtn.addClass('show_back_main_btn');
 		}else{
-			if(lastBtn == this){
-				console.log("true");
+			if(lastBtn == this){				
 				the_same = true;
 			}else{
 				the_same = false;
@@ -199,6 +197,8 @@ $(document).ready(function(){
 
 
 //companies slider
+let timeoutAutoSlide = 0;
+
 const companiesFeaturesItems = document.querySelectorAll('.companies-features-item');
 const smSliderBtns = document.querySelectorAll('.sm-slider-btn');
 
@@ -212,6 +212,8 @@ smSliderBtns[1].classList.add('sm-slider-btn-active');
 let lastSliderBtn = 1;
 smSliderBtns.forEach(function(btn, index){
 	btn.addEventListener('click', function(){
+		
+		clearTimeout(timeoutAutoSlide);
 		if(index != lastSliderBtn){
 			smSliderBtns[lastSliderBtn].classList.remove('sm-slider-btn-active');
 			btn.classList.add('sm-slider-btn-active');
@@ -258,3 +260,31 @@ companiesFeaturesItems.forEach(function(item, item_index){
 		
 	});
 });
+
+// auto slide
+let slideAutoCounter = 0;
+let slideAutoSwitch = 'right';
+timeoutAutoSlide = setTimeout(() => {
+	
+	setInterval(() => {
+		
+		if(timeoutAutoSlide){
+			if(slideAutoSwitch === 'right'){
+				smSliderBtns[slideAutoCounter].click();
+				slideAutoCounter++;
+				if(slideAutoCounter == smSliderBtns.length){
+					slideAutoSwitch = 'left';
+					slideAutoCounter = slideAutoCounter - 2;
+				}
+			}else{
+				smSliderBtns[slideAutoCounter].click();			
+				if(slideAutoCounter == 0){
+					slideAutoSwitch = 'right';
+					slideAutoCounter = slideAutoCounter + 2;
+				}
+				slideAutoCounter--;
+			}
+		}
+		
+	}, 5000);
+}, 30000);
