@@ -262,29 +262,32 @@ companiesFeaturesItems.forEach(function(item, item_index){
 });
 
 // auto slide
-let slideAutoCounter = 0;
-let slideAutoSwitch = 'right';
-timeoutAutoSlide = setTimeout(() => {
-	
-	setInterval(() => {
+if(window.innerWidth < 769){
+	let slideAutoCounter = 0;
+	let slideAutoSwitch = 'right';
+	timeoutAutoSlide = setTimeout(() => {
 		
-		if(timeoutAutoSlide){
-			if(slideAutoSwitch === 'right'){
-				smSliderBtns[slideAutoCounter].click();
-				slideAutoCounter++;
-				if(slideAutoCounter == smSliderBtns.length){
-					slideAutoSwitch = 'left';
-					slideAutoCounter = slideAutoCounter - 2;
+		setInterval(() => {
+			
+			if(timeoutAutoSlide){
+				if(slideAutoSwitch === 'right'){
+					smSliderBtns[slideAutoCounter].click();
+					slideAutoCounter++;
+					if(slideAutoCounter == smSliderBtns.length){
+						slideAutoSwitch = 'left';
+						slideAutoCounter = slideAutoCounter - 2;
+					}
+				}else{
+					smSliderBtns[slideAutoCounter].click();			
+					if(slideAutoCounter == 0){
+						slideAutoSwitch = 'right';
+						slideAutoCounter = slideAutoCounter + 2;
+					}
+					slideAutoCounter--;
 				}
-			}else{
-				smSliderBtns[slideAutoCounter].click();			
-				if(slideAutoCounter == 0){
-					slideAutoSwitch = 'right';
-					slideAutoCounter = slideAutoCounter + 2;
-				}
-				slideAutoCounter--;
 			}
-		}
-		
-	}, 5000);
-}, 30000);
+			
+		}, 5000);
+	}, 30000);
+}
+
