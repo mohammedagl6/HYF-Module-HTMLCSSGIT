@@ -220,14 +220,13 @@ smSliderBtns.forEach(function(btn, index){
 		}, 10000);
 
 		if(index != lastSliderBtn){
-			// smSliderBtns[lastSliderBtn].classList.remove('sm-slider-btn-active');
-			// btn.classList.add('sm-slider-btn-active');
-			smSliderBtns.forEach(function(btn){
-				if(btn.classList.contains('sm-slider-btn-active')){
-					btn.classList.remove('sm-slider-btn-active');
-				}
-			});
+			smSliderBtns[lastSliderBtn].classList.remove('sm-slider-btn-active');
 			btn.classList.add('sm-slider-btn-active');
+			// smSliderBtns.forEach(function(btn){
+			// 	if(btn.classList.contains('sm-slider-btn-active')){
+			// 		btn.classList.remove('sm-slider-btn-active');
+			// 	}
+			// });			
 			lastSliderBtn = index;
 			slide(index);
 		}
@@ -279,8 +278,7 @@ timeoutAutoSlide = setTimeout(() => {
 
 function slideAuto(){
 	if(window.innerWidth < 769){
-		let slideAutoCounter = 0;
-		let lastslideBtn = 0;
+		let slideAutoCounter = 0;		
 		let slideAutoSwitch = 'right';
 		
 			
@@ -291,13 +289,17 @@ function slideAuto(){
 					// smSliderBtns[slideAutoCounter].click();
 					slide(slideAutoCounter);
 
-					smSliderBtns.forEach(function(btn){
-						if(btn.classList.contains('sm-slider-btn-active')){
-							btn.classList.remove('sm-slider-btn-active');
-						}
-					});
+					if(smSliderBtns[lastSliderBtn].classList.contains('sm-slider-btn-active')){
+						smSliderBtns[lastSliderBtn].classList.remove('sm-slider-btn-active');
+					}
+
+					// smSliderBtns.forEach(function(btn){
+					// 	if(btn.classList.contains('sm-slider-btn-active')){
+					// 		btn.classList.remove('sm-slider-btn-active');
+					// 	}
+					// });
 					smSliderBtns[slideAutoCounter].classList.add('sm-slider-btn-active');
-						
+					lastSliderBtn = slideAutoCounter;	
 					slideAutoCounter++;
 					if(slideAutoCounter == smSliderBtns.length){
 						slideAutoSwitch = 'left';
@@ -306,14 +308,17 @@ function slideAuto(){
 				}else{
 					// smSliderBtns[slideAutoCounter].click();	
 					slide(slideAutoCounter)
-
-					smSliderBtns.forEach(function(btn){
-						if(btn.classList.contains('sm-slider-btn-active')){
-							btn.classList.remove('sm-slider-btn-active');
-						}
-					});
+					if(smSliderBtns[lastSliderBtn].classList.contains('sm-slider-btn-active')){
+						smSliderBtns[lastSliderBtn].classList.remove('sm-slider-btn-active');
+					}
+					// smSliderBtns.forEach(function(btn){
+					// 	if(btn.classList.contains('sm-slider-btn-active')){
+					// 		btn.classList.remove('sm-slider-btn-active');
+					// 	}
+					// });
 					smSliderBtns[slideAutoCounter].classList.add('sm-slider-btn-active');
-							
+					lastSliderBtn = slideAutoCounter;
+
 					if(slideAutoCounter == 0){
 						slideAutoSwitch = 'right';
 						slideAutoCounter = slideAutoCounter + 2;
