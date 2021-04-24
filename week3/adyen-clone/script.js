@@ -198,7 +198,7 @@ $(document).ready(function(){
 
 //companies slider
 let timeoutAutoSlide = 0;
-
+let timeIntervalAutoSlide = 0;
 const companiesFeaturesItems = document.querySelectorAll('.companies-features-item');
 const smSliderBtns = document.querySelectorAll('.sm-slider-btn');
 
@@ -214,8 +214,19 @@ smSliderBtns.forEach(function(btn, index){
 	btn.addEventListener('click', function(){
 		
 		clearTimeout(timeoutAutoSlide);
+		clearTimeout(timeIntervalAutoSlide);
+		timeoutAutoSlide = setTimeout(() => {
+			slideAuto();
+		}, 10000);
+
 		if(index != lastSliderBtn){
-			smSliderBtns[lastSliderBtn].classList.remove('sm-slider-btn-active');
+			// smSliderBtns[lastSliderBtn].classList.remove('sm-slider-btn-active');
+			// btn.classList.add('sm-slider-btn-active');
+			smSliderBtns.forEach(function(btn){
+				if(btn.classList.contains('sm-slider-btn-active')){
+					btn.classList.remove('sm-slider-btn-active');
+				}
+			});
 			btn.classList.add('sm-slider-btn-active');
 			lastSliderBtn = index;
 			slide(index);
@@ -261,33 +272,59 @@ companiesFeaturesItems.forEach(function(item, item_index){
 	});
 });
 
-// auto slide
-if(window.innerWidth < 769){
-	let slideAutoCounter = 0;
-	let slideAutoSwitch = 'right';
-	timeoutAutoSlide = setTimeout(() => {
+// auto slide first load is after 30 + 5 seconds and after user interaction with the slide 10 + 5 seconds
+timeoutAutoSlide = setTimeout(() => {
+	slideAuto();
+}, 30000);
+
+function slideAuto(){
+	if(window.innerWidth < 769){
+		let slideAutoCounter = 0;
+		let lastslideBtn = 0;
+		let slideAutoSwitch = 'right';
 		
-		setInterval(() => {
 			
-			if(timeoutAutoSlide){
+			timeIntervalAutoSlide =	setInterval(() => {
+				
+				
 				if(slideAutoSwitch === 'right'){
-					smSliderBtns[slideAutoCounter].click();
+					// smSliderBtns[slideAutoCounter].click();
+					slide(slideAutoCounter);
+
+					smSliderBtns.forEach(function(btn){
+						if(btn.classList.contains('sm-slider-btn-active')){
+							btn.classList.remove('sm-slider-btn-active');
+						}
+					});
+					smSliderBtns[slideAutoCounter].classList.add('sm-slider-btn-active');
+						
 					slideAutoCounter++;
 					if(slideAutoCounter == smSliderBtns.length){
 						slideAutoSwitch = 'left';
 						slideAutoCounter = slideAutoCounter - 2;
 					}
 				}else{
-					smSliderBtns[slideAutoCounter].click();			
+					// smSliderBtns[slideAutoCounter].click();	
+					slide(slideAutoCounter)
+
+					smSliderBtns.forEach(function(btn){
+						if(btn.classList.contains('sm-slider-btn-active')){
+							btn.classList.remove('sm-slider-btn-active');
+						}
+					});
+					smSliderBtns[slideAutoCounter].classList.add('sm-slider-btn-active');
+							
 					if(slideAutoCounter == 0){
 						slideAutoSwitch = 'right';
 						slideAutoCounter = slideAutoCounter + 2;
 					}
 					slideAutoCounter--;
 				}
-			}
 			
-		}, 5000);
-	}, 30000);
+				
+			}, 5000);
+		
+	}
 }
+
 
